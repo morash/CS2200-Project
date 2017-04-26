@@ -68,21 +68,41 @@
 #
 #####
 
-
-#####
-# VectorPrint3D
-#
-# Given the address of a vector in memory, print it
-#   to the console. All vectors consist of 3 32-bit values.
-#   output example: (12, -7, 6)
-#
-# parameters
-#     $a0 - address of the vector to print
-#
-# return values
-#     none
-#
-# side effects
-#     console output
-#
-#####
+# subprogram: PrintVector3D
+# author: Michael Morash
+# purpose: To print a 3D vector to the console
+# input: $a0 - The vector to print
+# returns: None
+# side effects: The vector is printed to the output.
+.text
+PrintVector3D:
+	sw $ra, 0($sp)
+	
+	lw $t0, ($a0)
+	lw $t1, 4($a0)
+	lw $t2, 8($a0)
+	
+	la $a0, __openParenthesis
+	move $a1, $t0
+	jal PrintInt
+	
+	la $a0, __comma
+	move $a1, $t1
+	jal PrintInt
+	
+	la $a0, __comma
+	move $a1, $t2
+	jal PrintInt
+	
+	la $a0, __closeParenthesis
+	jal PrintString
+	
+	lw $ra, 0($sp)
+	jr $ra
+.data
+	__openParenthesis: .asciiz "( "
+	__closeParenthesis: .asciiz " )"
+	__comma: .asciiz " , "
+	
+	
+	
