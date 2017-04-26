@@ -68,14 +68,14 @@
 #
 #####
 
-# subprogram: PrintVector3D
+# subprogram: VectorPrint3D
 # author: Michael Morash
 # purpose: To print a 3D vector to the console
 # input: $a0 - The vector to print
 # returns: None
 # side effects: The vector is printed to the output.
 .text
-PrintVector3D:
+VectorPrint3D:
 	sw $ra, 0($sp)
 	
 	lw $t0, ($a0)
