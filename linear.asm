@@ -47,9 +47,17 @@
 #     Value at address X is overwritten by this operation
 #
 #####
-# .text
-# VectorScale3D:
-
+.text
+VectorScale3D:
+	mult ($a1), $a2
+	mflo ($a0)
+	
+	mult 4($a1), $a2
+	mflo 4($a0)
+	
+	mult 8($a1), $a2
+	mflo 8($a0)	
+	
 #####
 # VectorDotProduct3D
 #
