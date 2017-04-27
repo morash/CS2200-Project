@@ -3,6 +3,7 @@
 # Authors:
 #  Michael Morash
 #  Jansen Morby
+#  Joshua Savage
 
 #####
 # VectorAdd3D
@@ -22,7 +23,8 @@
 #     Value at address X is overwritten by this operation
 #
 #####
-
+# .text
+# VectorAdd3D:
 
 #####
 # VectorScale3D
@@ -45,7 +47,8 @@
 #     Value at address X is overwritten by this operation
 #
 #####
-
+# .text
+# VectorScale3D:
 
 #####
 # VectorDotProduct3D
@@ -67,6 +70,9 @@
 #     none
 #
 #####
+# .text
+# VectorDotProduct3D:
+
 
 # subprogram: VectorPrint3D
 # author: Michael Morash
