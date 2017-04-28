@@ -23,8 +23,24 @@
 #     Value at address X is overwritten by this operation
 #
 #####
-# .text
-# VectorAdd3D:
+.text
+VectorAdd3D:
+	sw $ra, 0($sp)
+	
+	lw $t0, ($a1)
+	lw $t1, 4($a1)
+	lw $t2, 8($a1)
+	lw $t3, ($a2)
+	lw $t4, 4($a2)
+	lw $t5, 8($a2)
+	
+	add $t0, $t0, $t3
+	add $t1, $t1, $t4 
+	add $t2, $t2, $t5 
+	
+	sw $t0, ($a0)
+	sw $t1, 4($a0)
+	sw $t2, 8($a0)
 
 #####
 # VectorScale3D
