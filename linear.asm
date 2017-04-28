@@ -49,14 +49,23 @@
 #####
 .text
 VectorScale3D:
-	mult ($a1), $a2
-	mflo ($a0)
+	#load values into $t0, $t1, $t2
+	lw $t0, ($a1)
+	lw $t1, 4($a1)
+	lw $t2, 8($a1)
 	
-	mult 4($a1), $a2
-	mflo 4($a0)
+	#multiply values by S and store in $t0, $t1, $t2
+	mult $t0, $a2
+	mflo $t0
+	mult $t1, $a2
+	mflo $t1
+	mult $t2, $a2
+	mflo $t2
 	
-	mult 8($a1), $a2
-	mflo 8($a0)	
+	#put values into $a0
+	sw $t0, ($a0)
+	sw $t1, 4($a0)
+	sw $t2, 8($a0)	
 	
 #####
 # VectorDotProduct3D
